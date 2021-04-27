@@ -14,7 +14,25 @@ export function stringyNumbers(arr) {
 }
 
 export function capitalizeNames(arr) {
-  return arr.charAt(0).toUpperCase() + arr.slice(1);
+  return arr.map(name => {
+    return name[0].toUpperCase() + name.slice(1).toLowerCase();
+  });
 }
-capitalizeNames(input);
+export function namesOnly(arr) {
+  return arr.map(person => {
+    return `${person.name}`;
+  });
+}
+
+export function makeStrings(arr) {
+  return arr.map(person => {
+    return `${person.name} ${person.age < 18 ? 'is under age!!' : 'can go to The Matrix'}`;
+  });
+}
+
+export function makeHeader(arr) {
+  return arr.map(person => {
+    return `<h1>${person.name}</h1><h2>${person.age}</h2>`;
+  });
+}
 
