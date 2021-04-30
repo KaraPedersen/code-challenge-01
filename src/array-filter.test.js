@@ -1,4 +1,4 @@
-import { fiveAndGreaterOnly, evensOnly, fiveCharactersOrFewerOnly, peopleWhoBelongToTheIlluminati } from './array-filter';
+import { fiveAndGreaterOnly, evensOnly, fiveCharactersOrFewerOnly, peopleWhoBelongToTheIlluminati, ofAge } from './array-filter';
 
 test('Five and greater only', () => {
   const input = [3, 6, 8, 2]; // arrange
@@ -21,9 +21,9 @@ test('fiveCharactersOrFewerOnly', () => {
 test('peopleWhoBelongToTheIlluminati', () => {
   const input = [
     { name: 'Angelina Jolie', member: true },
-    { name: 'Eric Jones', member: false },
+    { name: 'Eric Jones', member: 0 },
     { name: 'Paris Hilton', member: true },
-    { name: 'Kayne West', member: false },
+    { name: 'Kayne West', member: 0 },
     { name: 'Bob Ziroll', member: true }
   ];
   const actual = peopleWhoBelongToTheIlluminati(input);
@@ -32,4 +32,18 @@ test('peopleWhoBelongToTheIlluminati', () => {
     { name: 'Paris Hilton', member: true },
     { name: 'Bob Ziroll', member: true }
   ]);
+});
+
+
+test('ofAge', () => {
+  const input = [
+    { name: 'Angelina Jolie', age: 80 },
+    { name: 'Eric Jones', age: 2 },
+    { name: 'Paris Hilton', age: 5 },
+    { name: 'Kayne West', age: 16 },
+    { name: 'Bob Ziroll', age: 100 }];
+  const actual = ofAge(input);
+  expect(actual).toEqual([
+    { name: 'Angelina Jolie', age: 80 },
+    { name: 'Bob Ziroll', age: 100 }]);
 });

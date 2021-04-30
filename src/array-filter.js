@@ -12,9 +12,11 @@ export function fiveCharactersOrFewerOnly(arr) {
 }
 
 export function peopleWhoBelongToTheIlluminati(arr) {
-  return arr.filter(!Boolean);
+  return arr.filter(booger => booger.member === true);
   // eslint-disable-next-line no-restricted-globals
+}
 
-
+export function ofAge(arr) {
+  return arr.filter(booger => booger.age > 18);
 
 }
